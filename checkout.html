@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#fff5ee,#ffe4d6,#ffd6c9);
+padding:20px;
+}
+
+.box{
+width:100%;
+max-width:420px;
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,0.1);
+animation:fadeIn .8s ease;
+}
+
+h1{
+text-align:center;
+color:#8b5e5e;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+color:#999;
+margin-bottom:25px;
+}
+
+input{
+width:100%;
+padding:14px;
+margin:10px 0;
+border:1px solid #eee;
+border-radius:12px;
+outline:none;
+transition:.3s;
+}
+
+input:focus{
+border-color:#ffb6a3;
+box-shadow:0 0 10px rgba(255,182,163,.4);
+}
+
+.pay-btn{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:12px;
+background:linear-gradient(to right,#ffb6a3,#ff8fab);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.pay-btn:hover{
+transform:translateY(-3px);
+}
+
+.loader{
+display:none;
+text-align:center;
+margin-top:20px;
+font-size:18px;
+color:#8b5e5e;
+}
+
+.secure{
+text-align:center;
+margin-top:15px;
+font-size:13px;
+color:#777;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>💳 Checkout</h1>
+
+<p class="subtitle">
+Complete Your Secure Payment
+</p>
+
+<input type="text" placeholder="👤 Full Name">
+
+<input type="text" placeholder="📱 UPI ID">
+
+<input type="text" placeholder="💳 Card Number">
+
+<input type="password" placeholder="🔒 CVV">
+
+<button class="pay-btn" onclick="payNow()">
+Pay Securely
+</button>
+
+<div class="loader" id="loader">
+⏳ Processing Payment...
+</div>
+
+<p class="secure">
+🔐 100% Secure Payment Gateway
+</p>
+
+</div>
+
+<script>
+
+function payNow(){
+
+document.getElementById("loader").style.display="block";
+
+setTimeout(()=>{
+
+alert("✅ Payment Successful!");
+
+localStorage.removeItem("cart");
+
+window.location.href="index.html";
+
+},2000);
+
+}
+
+</script>
+
+</body>
+</html>
